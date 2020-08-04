@@ -214,7 +214,7 @@
 <td>Count the number of peaks in a solution.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#oneD_simulation.simulation.get_amount" title="oneD_simulation.simulation.get_amount"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_amount</span></code></a>()</td>
-<td>Find <strong>self.amount</strong> = int_0^L {E} dx :return: <strong>self.amount</strong></td>
+<td>Find <strong>self.amount</strong> = int_0^L {E} dx</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#oneD_simulation.simulation.get_apical_solution" title="oneD_simulation.simulation.get_apical_solution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_apical_solution</span></code></a>()</td>
 <td>Crop the solution down to just the apical membrane (as defined by <strong>self.l_apical</strong> versus <strong>self.L</strong>).</td>
@@ -226,10 +226,10 @@
 <td>Find ∆E, the difference between the maximum and minimum value of <strong>E</strong> at the final time-step.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#oneD_simulation.simulation.get_rel_heights" title="oneD_simulation.simulation.get_rel_heights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_rel_heights</span></code></a>()</td>
-<td>Find ∆E for all time-points :return: <strong>self.rel_heights (**np.ndarray</strong> of shape (<strong>n_t</strong> x 1) and dtype <strong>np.float32</strong>)</td>
+<td>Find ∆E for all time-points</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#oneD_simulation.simulation.make_directory" title="oneD_simulation.simulation.make_directory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_directory</span></code></a>(dir)</td>
-<td>Makes a new directory, specified by the string dir :param dir: Directory name (<strong>string</strong>)</td>
+<td>Makes a new directory, specified by the string dir</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="#oneD_simulation.simulation.norm" title="oneD_simulation.simulation.norm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">norm</span></code></a>(x)</td>
 <td>Generic function to normalize a 1D <strong>np.ndarray</strong>, calculating the normalized array <strong>y</strong> as:</td>
@@ -262,10 +262,22 @@ this function centres the solution such that the maximal <strong>E</strong> at t
 <dl class="method">
 <dt id="oneD_simulation.simulation.del_1d">
 <code class="descname">del_1d</code><span class="sig-paren">(</span><em>y</em>, <em>dx</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.del_1d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.del_1d" title="Permalink to this definition">¶</a></dt>
-<dd><p>Central difference discretisation of the Laplacian.
-:param y: Spatially discretised 1D function (i.e. a <strong>np.ndarray</strong> of dtype <strong>np.float32</strong>) on which the function is applied
-:param dx: Spatial discretisation lengthscale (<strong>np.float32</strong>)
-:return: Spatially discretised Laplacian of y</p>
+<dd><p>Central difference discretisation of the Laplacian.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>y</strong> – Spatially discretised 1D function (i.e. a <strong>np.ndarray</strong> of dtype <strong>np.float32</strong>) on which the function is applied</li>
+<li><strong>dx</strong> – Spatial discretisation lengthscale (<strong>np.float32</strong>)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Spatially discretised Laplacian of y</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -315,16 +327,31 @@ evolution of <strong>E</strong> <strong>modelling cell-cell contacts, where E ca
 <dl class="method">
 <dt id="oneD_simulation.simulation.find_peaks">
 <code class="descname">find_peaks</code><span class="sig-paren">(</span><em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.find_peaks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.find_peaks" title="Permalink to this definition">¶</a></dt>
-<dd><p>Count the number of peaks in a solution.
-:param y: <strong>1D</strong> array of concentrations (i.e. <strong>E</strong> at a given time t) (<strong>np.ndarray</strong> of size (<strong>self.num_x x 1</strong>) and dtype <strong>np.float32</strong>)
-:return: Number of peaks (<strong>np.int32</strong>)</p>
+<dd><p>Count the number of peaks in a solution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>y</strong> – <strong>1D</strong> array of concentrations (i.e. <strong>E</strong> at a given time t) (<strong>np.ndarray</strong> of size (<strong>self.num_x x 1</strong>) and dtype <strong>np.float32</strong>)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Number of peaks (<strong>np.int32</strong>)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="oneD_simulation.simulation.get_amount">
 <code class="descname">get_amount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.get_amount"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.get_amount" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find <strong>self.amount</strong> = int_0^L {E} dx
-:return: <strong>self.amount</strong></p>
+<dd><p>Find <strong>self.amount</strong> = int_0^L {E} dx</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>self.amount</strong></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -353,22 +380,43 @@ The threshold is set by <strong>self.pol_thresh</strong>.</p>
 <dl class="method">
 <dt id="oneD_simulation.simulation.get_rel_height">
 <code class="descname">get_rel_height</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.get_rel_height"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.get_rel_height" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find ∆E, the difference between the maximum and minimum value of <strong>E</strong> at the final time-step.
-:return: ∆E, <strong>self.rel_height</strong> (a <strong>np.float32</strong>)</p>
+<dd><p>Find ∆E, the difference between the maximum and minimum value of <strong>E</strong> at the final time-step.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">∆E, <strong>self.rel_height</strong> (a <strong>np.float32</strong>)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="oneD_simulation.simulation.get_rel_heights">
 <code class="descname">get_rel_heights</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.get_rel_heights"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.get_rel_heights" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find ∆E for all time-points
-:return: <strong>self.rel_heights (**np.ndarray</strong> of shape (<strong>n_t</strong> x 1) and dtype <strong>np.float32</strong>)</p>
+<dd><p>Find ∆E for all time-points</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>self.rel_heights (**np.ndarray</strong> of shape (<strong>n_t</strong> x 1) and dtype <strong>np.float32</strong>)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="oneD_simulation.simulation.make_directory">
 <code class="descname">make_directory</code><span class="sig-paren">(</span><em>dir</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.make_directory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.make_directory" title="Permalink to this definition">¶</a></dt>
-<dd><p>Makes a new directory, specified by the string dir
-:param dir: Directory name (<strong>string</strong>)</p>
+<dd><p>Makes a new directory, specified by the string dir</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dir</strong> – Directory name (<strong>string</strong>)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -446,10 +494,22 @@ with mean <strong>mean</strong> and standard deviation <strong>SD</strong></p>
 <p>if <strong>apical_on</strong> is <strong>True</strong>, then <strong>n</strong> specifies the number of spatial blocks within the apical domain
 (of length <strong>self.l_apical</strong>), and <strong>self.num_x</strong> is computed with respect to the ratio of <strong>self.l_apical</strong> and
 <strong>self.L</strong> (the full domain length i.e. cell perimeter)</p>
-<p>if <strong>apical_on</strong> is <strong>False</strong>, then <strong>n</strong> defines <strong>self.num_x</strong>
-:param n: Number of spatial blocks (<strong>np.int32</strong>)
-:param apical_on: Specifies whether apical membrane is considered specifically or not (<strong>np.bool</strong>)
-:return:</p>
+<p>if <strong>apical_on</strong> is <strong>False</strong>, then <strong>n</strong> defines <strong>self.num_x</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>n</strong> – Number of spatial blocks (<strong>np.int32</strong>)</li>
+<li><strong>apical_on</strong> – Specifies whether apical membrane is considered specifically or not (<strong>np.bool</strong>)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">

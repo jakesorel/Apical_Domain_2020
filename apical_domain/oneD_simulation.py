@@ -58,6 +58,7 @@ class simulation:
     def make_directory(self,dir):
         """
         Makes a new directory, specified by the string dir
+
         :param dir: Directory name (**string**)
         """
         if not os.path.exists(dir):
@@ -72,6 +73,7 @@ class simulation:
         **self.L** (the full domain length i.e. cell perimeter)
 
         if **apical_on** is **False**, then **n** defines **self.num_x**
+
         :param n: Number of spatial blocks (**np.int32**)
         :param apical_on: Specifies whether apical membrane is considered specifically or not (**np.bool**)
         :return:
@@ -125,6 +127,7 @@ class simulation:
     def del_1d(self,y, dx):
         """
         Central difference discretisation of the Laplacian.
+
         :param y: Spatially discretised 1D function (i.e. a **np.ndarray** of dtype **np.float32**) on which the function is applied
         :param dx: Spatial discretisation lengthscale (**np.float32**)
         :return: Spatially discretised Laplacian of y
@@ -251,6 +254,7 @@ class simulation:
     def get_rel_height(self):
         """
         Find ∆E, the difference between the maximum and minimum value of **E** at the final time-step.
+
         :return: ∆E, **self.rel_height** (a **np.float32**)
         """
         self.rel_height = self.ysol[-1].max() - self.ysol[-1].min()
@@ -259,6 +263,7 @@ class simulation:
     def get_rel_heights(self):
         """
         Find ∆E for all time-points
+
         :return: **self.rel_heights (**np.ndarray** of shape (**n_t** x 1) and dtype **np.float32**)
         """
         self.rel_heights = np.max(self.ysol, axis=1) - np.min(self.ysol, axis=1)
@@ -267,6 +272,7 @@ class simulation:
     def get_amount(self):
         """
         Find **self.amount** = int_0^L {E} dx
+
         :return: **self.amount**
         """
         self.amount = np.sum(self.ysol[-1]) * self.dx
@@ -275,6 +281,7 @@ class simulation:
     def find_peaks(self, y):
         """
         Count the number of peaks in a solution.
+
         :param y: **1D** array of concentrations (i.e. **E** at a given time t) (**np.ndarray** of size (**self.num_x x 1**) and dtype **np.float32**)
         :return: Number of peaks (**np.int32**)
         """
@@ -321,6 +328,7 @@ class phase_space:
         """
         Phase space considers solutions when varying two parameters. So this function sets the **axis-labels** of the
         x and y axes
+
         :param xname: **Axis label** of the x-axis (**str**), e.g. r"$log_10 \lambda$"
         :param yname: **Axis label** of the x-axis (**str**), e.g. r"$1 / \epsilon$"
         """
@@ -343,6 +351,7 @@ class phase_space:
     def get_outname(self, out):
         """
         Defines the labels attributed to the various statistics that are calculated.
+
         :param out: The output matrix from the parameter sweep (e.g. **self.rel_height**)
         :return: Label (**str**) (e.g. r"$\Delta E$")
         """
@@ -355,6 +364,7 @@ class phase_space:
         """
         Perform the simulation (with repeats as defined by the **np.int** **self.rep**), and calculate the summary statistics:
         the relative height (∆E), the amount (int E dx), and the number of peaks.
+
         :param X: Two-element list or array defining the values of the parameters attributed to the x or y axis
         :return: Three-element array of the statistics, as defined by the order listed above.
         """
@@ -481,6 +491,7 @@ class phase_space:
     def overlay_peaks(self, ax):
         """
         Overlay the number of peaks. Transparent if 1 or 0 peaks, or increasingly black if multi-peak solutions are frequent.
+
         :param ax: **matplotlib** axis object
         :return: ax
         """

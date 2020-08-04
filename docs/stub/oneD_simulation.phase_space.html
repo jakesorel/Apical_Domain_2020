@@ -243,18 +243,34 @@ in the <strong>simulation</strong> class.</p>
 <dl class="method">
 <dt id="oneD_simulation.phase_space.get_outname">
 <code class="descname">get_outname</code><span class="sig-paren">(</span><em>out</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#phase_space.get_outname"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.phase_space.get_outname" title="Permalink to this definition">¶</a></dt>
-<dd><p>Defines the labels attributed to the various statistics that are calculated.
-:param out: The output matrix from the parameter sweep (e.g. <strong>self.rel_height</strong>)
-:return: Label (<strong>str</strong>) (e.g. r”$Delta E$”)</p>
+<dd><p>Defines the labels attributed to the various statistics that are calculated.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>out</strong> – The output matrix from the parameter sweep (e.g. <strong>self.rel_height</strong>)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Label (<strong>str</strong>) (e.g. r”$Delta E$”)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="oneD_simulation.phase_space.get_stats">
 <code class="descname">get_stats</code><span class="sig-paren">(</span><em>X</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#phase_space.get_stats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.phase_space.get_stats" title="Permalink to this definition">¶</a></dt>
 <dd><p>Perform the simulation (with repeats as defined by the <strong>np.int</strong> <strong>self.rep</strong>), and calculate the summary statistics:
-the relative height (∆E), the amount (int E dx), and the number of peaks.
-:param X: Two-element list or array defining the values of the parameters attributed to the x or y axis
-:return: Three-element array of the statistics, as defined by the order listed above.</p>
+the relative height (∆E), the amount (int E dx), and the number of peaks.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>X</strong> – Two-element list or array defining the values of the parameters attributed to the x or y axis</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Three-element array of the statistics, as defined by the order listed above.</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -283,9 +299,17 @@ the relative height (∆E), the amount (int E dx), and the number of peaks.
 <dl class="method">
 <dt id="oneD_simulation.phase_space.overlay_peaks">
 <code class="descname">overlay_peaks</code><span class="sig-paren">(</span><em>ax</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#phase_space.overlay_peaks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.phase_space.overlay_peaks" title="Permalink to this definition">¶</a></dt>
-<dd><p>Overlay the number of peaks. Transparent if 1 or 0 peaks, or increasingly black if multi-peak solutions are frequent.
-:param ax: <strong>matplotlib</strong> axis object
-:return: ax</p>
+<dd><p>Overlay the number of peaks. Transparent if 1 or 0 peaks, or increasingly black if multi-peak solutions are frequent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ax</strong> – <strong>matplotlib</strong> axis object</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">ax</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -348,9 +372,19 @@ parameter combination if <strong>True</strong>. Else the first initial condition
 <dt id="oneD_simulation.phase_space.set_names">
 <code class="descname">set_names</code><span class="sig-paren">(</span><em>xname</em>, <em>yname</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#phase_space.set_names"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.phase_space.set_names" title="Permalink to this definition">¶</a></dt>
 <dd><p>Phase space considers solutions when varying two parameters. So this function sets the <strong>axis-labels</strong> of the
-x and y axes
-:param xname: <strong>Axis label</strong> of the x-axis (<strong>str</strong>), e.g. r”$log_10 lambda$”
-:param yname: <strong>Axis label</strong> of the x-axis (<strong>str</strong>), e.g. r”$1 / epsilon$”</p>
+x and y axes</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>xname</strong> – <strong>Axis label</strong> of the x-axis (<strong>str</strong>), e.g. r”$log_10 lambda$”</li>
+<li><strong>yname</strong> – <strong>Axis label</strong> of the x-axis (<strong>str</strong>), e.g. r”$1 / epsilon$”</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

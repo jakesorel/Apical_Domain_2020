@@ -210,6 +210,7 @@
 <div class="viewcode-block" id="simulation.make_directory"><a class="viewcode-back" href="../stub/oneD_simulation.simulation.html#oneD_simulation.simulation.make_directory">[docs]</a>    <span class="k">def</span> <span class="nf">make_directory</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="nb">dir</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Makes a new directory, specified by the string dir</span>
+
 <span class="sd">        :param dir: Directory name (**string**)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="nb">dir</span><span class="p">):</span>
@@ -224,6 +225,7 @@
 <span class="sd">        **self.L** (the full domain length i.e. cell perimeter)</span>
 
 <span class="sd">        if **apical_on** is **False**, then **n** defines **self.num_x**</span>
+
 <span class="sd">        :param n: Number of spatial blocks (**np.int32**)</span>
 <span class="sd">        :param apical_on: Specifies whether apical membrane is considered specifically or not (**np.bool**)</span>
 <span class="sd">        :return:</span>
@@ -277,6 +279,7 @@
 <div class="viewcode-block" id="simulation.del_1d"><a class="viewcode-back" href="../stub/oneD_simulation.simulation.html#oneD_simulation.simulation.del_1d">[docs]</a>    <span class="k">def</span> <span class="nf">del_1d</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">dx</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Central difference discretisation of the Laplacian.</span>
+
 <span class="sd">        :param y: Spatially discretised 1D function (i.e. a **np.ndarray** of dtype **np.float32**) on which the function is applied</span>
 <span class="sd">        :param dx: Spatial discretisation lengthscale (**np.float32**)</span>
 <span class="sd">        :return: Spatially discretised Laplacian of y</span>
@@ -403,6 +406,7 @@
 <div class="viewcode-block" id="simulation.get_rel_height"><a class="viewcode-back" href="../stub/oneD_simulation.simulation.html#oneD_simulation.simulation.get_rel_height">[docs]</a>    <span class="k">def</span> <span class="nf">get_rel_height</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find ∆E, the difference between the maximum and minimum value of **E** at the final time-step.</span>
+
 <span class="sd">        :return: ∆E, **self.rel_height** (a **np.float32**)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rel_height</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ysol</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">ysol</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
@@ -411,6 +415,7 @@
 <div class="viewcode-block" id="simulation.get_rel_heights"><a class="viewcode-back" href="../stub/oneD_simulation.simulation.html#oneD_simulation.simulation.get_rel_heights">[docs]</a>    <span class="k">def</span> <span class="nf">get_rel_heights</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find ∆E for all time-points</span>
+
 <span class="sd">        :return: **self.rel_heights (**np.ndarray** of shape (**n_t** x 1) and dtype **np.float32**)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rel_heights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ysol</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ysol</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -419,6 +424,7 @@
 <div class="viewcode-block" id="simulation.get_amount"><a class="viewcode-back" href="../stub/oneD_simulation.simulation.html#oneD_simulation.simulation.get_amount">[docs]</a>    <span class="k">def</span> <span class="nf">get_amount</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find **self.amount** = int_0^L {E} dx</span>
+
 <span class="sd">        :return: **self.amount**</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">amount</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ysol</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">dx</span>
@@ -427,6 +433,7 @@
 <div class="viewcode-block" id="simulation.find_peaks"><a class="viewcode-back" href="../stub/oneD_simulation.simulation.html#oneD_simulation.simulation.find_peaks">[docs]</a>    <span class="k">def</span> <span class="nf">find_peaks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Count the number of peaks in a solution.</span>
+
 <span class="sd">        :param y: **1D** array of concentrations (i.e. **E** at a given time t) (**np.ndarray** of size (**self.num_x x 1**) and dtype **np.float32**)</span>
 <span class="sd">        :return: Number of peaks (**np.int32**)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -473,6 +480,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Phase space considers solutions when varying two parameters. So this function sets the **axis-labels** of the</span>
 <span class="sd">        x and y axes</span>
+
 <span class="sd">        :param xname: **Axis label** of the x-axis (**str**), e.g. r&quot;$log_10 \lambda$&quot;</span>
 <span class="sd">        :param yname: **Axis label** of the x-axis (**str**), e.g. r&quot;$1 / \epsilon$&quot;</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -495,6 +503,7 @@
 <div class="viewcode-block" id="phase_space.get_outname"><a class="viewcode-back" href="../stub/oneD_simulation.phase_space.html#oneD_simulation.phase_space.get_outname">[docs]</a>    <span class="k">def</span> <span class="nf">get_outname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Defines the labels attributed to the various statistics that are calculated.</span>
+
 <span class="sd">        :param out: The output matrix from the parameter sweep (e.g. **self.rel_height**)</span>
 <span class="sd">        :return: Label (**str**) (e.g. r&quot;$\Delta E$&quot;)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -507,6 +516,7 @@
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Perform the simulation (with repeats as defined by the **np.int** **self.rep**), and calculate the summary statistics:</span>
 <span class="sd">        the relative height (∆E), the amount (int E dx), and the number of peaks.</span>
+
 <span class="sd">        :param X: Two-element list or array defining the values of the parameters attributed to the x or y axis</span>
 <span class="sd">        :return: Three-element array of the statistics, as defined by the order listed above.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -633,6 +643,7 @@
 <div class="viewcode-block" id="phase_space.overlay_peaks"><a class="viewcode-back" href="../stub/oneD_simulation.phase_space.html#oneD_simulation.phase_space.overlay_peaks">[docs]</a>    <span class="k">def</span> <span class="nf">overlay_peaks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ax</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Overlay the number of peaks. Transparent if 1 or 0 peaks, or increasingly black if multi-peak solutions are frequent.</span>
+
 <span class="sd">        :param ax: **matplotlib** axis object</span>
 <span class="sd">        :return: ax</span>
 <span class="sd">        &quot;&quot;&quot;</span>

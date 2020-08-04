@@ -195,35 +195,74 @@ this function centres the solution such that the maximal <strong>E</strong> at t
 <dl class="method">
 <dt id="non_dimensional.simulation.diffuse">
 <code class="descname">diffuse</code><span class="sig-paren">(</span><em>X</em>, <em>dt</em>, <em>coeffs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/non_dimensional.html#simulation.diffuse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#non_dimensional.simulation.diffuse" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform the diffusion operation, given the spatial distribution of the function being integrated <strong>X</strong> (“e” here)
-:param X: Function to be integrated (<strong>np.ndarray</strong> of dtype <strong>np.float32</strong> and size (<strong>self.num_x</strong> x 1)
-:param dt: Temporal discretization (Strictly “ds” in the Supplementary Modeling)
-:param coeffs: Coefficients for the Fourier transform, as supplied by the <strong>self.make_coeffs</strong> function
-:return: Spatial distribution of the function after integration by 1 time-step (by amount dt)</p>
+<dd><p>Perform the diffusion operation, given the spatial distribution of the function being integrated <strong>X</strong> (“e” here)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>X</strong> – Function to be integrated (<strong>np.ndarray</strong> of dtype <strong>np.float32</strong> and size (<strong>self.num_x</strong> x 1)</li>
+<li><strong>dt</strong> – Temporal discretization (Strictly “ds” in the Supplementary Modeling)</li>
+<li><strong>coeffs</strong> – Coefficients for the Fourier transform, as supplied by the <strong>self.make_coeffs</strong> function</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Spatial distribution of the function after integration by 1 time-step (by amount dt)</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="non_dimensional.simulation.f">
 <code class="descname">f</code><span class="sig-paren">(</span><em>e</em>, <em>t</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/non_dimensional.html#simulation.f"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#non_dimensional.simulation.f" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reaction function, describing the transport terms.
-:param e: 1D <strong>np.ndarray</strong> of dtype <strong>np.float32</strong> and size (<strong>self.num_x</strong> x 1) describing the spatially discretized distribution of <strong>e</strong>
-:param t: Time-point
-:return: de/dt – 1D <strong>np.ndarray</strong> of dtype <strong>np.float32</strong> and size (<strong>self.num_x</strong> x 1)</p>
+<dd><p>Reaction function, describing the transport terms.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>e</strong> – 1D <strong>np.ndarray</strong> of dtype <strong>np.float32</strong> and size (<strong>self.num_x</strong> x 1) describing the spatially discretized distribution of <strong>e</strong></li>
+<li><strong>t</strong> – Time-point</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">de/dt – 1D <strong>np.ndarray</strong> of dtype <strong>np.float32</strong> and size (<strong>self.num_x</strong> x 1)</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="non_dimensional.simulation.find_peaks">
 <code class="descname">find_peaks</code><span class="sig-paren">(</span><em>y</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/non_dimensional.html#simulation.find_peaks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#non_dimensional.simulation.find_peaks" title="Permalink to this definition">¶</a></dt>
-<dd><p>Count the number of peaks in a solution.
-:param y: <strong>1D</strong> array of concentrations (i.e. <strong>E</strong> at a given time t) (<strong>np.ndarray</strong> of size (<strong>self.num_x x 1</strong>) and dtype <strong>np.float32</strong>)
-:return: Number of peaks (<strong>np.int32</strong>)</p>
+<dd><p>Count the number of peaks in a solution.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>y</strong> – <strong>1D</strong> array of concentrations (i.e. <strong>E</strong> at a given time t) (<strong>np.ndarray</strong> of size (<strong>self.num_x x 1</strong>) and dtype <strong>np.float32</strong>)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Number of peaks (<strong>np.int32</strong>)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="non_dimensional.simulation.get_amount">
 <code class="descname">get_amount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/non_dimensional.html#simulation.get_amount"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#non_dimensional.simulation.get_amount" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find <strong>self.amount</strong> = int_0^L {e} dx
-:return: <strong>self.amount</strong></p>
+<dd><p>Find <strong>self.amount</strong> = int_0^L {e} dx</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>self.amount</strong></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -252,15 +291,29 @@ The threshold is set by <strong>self.pol_thresh</strong>.</p>
 <dl class="method">
 <dt id="non_dimensional.simulation.get_polarisation_timescale">
 <code class="descname">get_polarisation_timescale</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/non_dimensional.html#simulation.get_polarisation_timescale"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#non_dimensional.simulation.get_polarisation_timescale" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find the relative polarization time-scale, the amount of (dimensionless) time until the simulation surpasses a critical polarity threshold (defined by self.pol_thresh)
-:return: <strong>self.polarisation_timescale</strong></p>
+<dd><p>Find the relative polarization time-scale, the amount of (dimensionless) time until the simulation surpasses a critical polarity threshold (defined by self.pol_thresh)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>self.polarisation_timescale</strong></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="non_dimensional.simulation.get_rel_height">
 <code class="descname">get_rel_height</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/non_dimensional.html#simulation.get_rel_height"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#non_dimensional.simulation.get_rel_height" title="Permalink to this definition">¶</a></dt>
-<dd><p>Find ∆e, the difference between the maximum and minimum value of <strong>e</strong> at the final time-step.
-:return: ∆e, <strong>self.rel_height</strong> (a <strong>np.float32</strong>)</p>
+<dd><p>Find ∆e, the difference between the maximum and minimum value of <strong>e</strong> at the final time-step.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">∆e, <strong>self.rel_height</strong> (a <strong>np.float32</strong>)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -273,9 +326,17 @@ The threshold is set by <strong>self.pol_thresh</strong>.</p>
 <dl class="method">
 <dt id="non_dimensional.simulation.make_coeffs">
 <code class="descname">make_coeffs</code><span class="sig-paren">(</span><em>D</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/non_dimensional.html#simulation.make_coeffs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#non_dimensional.simulation.make_coeffs" title="Permalink to this definition">¶</a></dt>
-<dd><p>Used in the operator-splitting Fourier method for simulation. Details provided in Supplementary Modeling Appendix IV
-:param D: Diffusion coefficient (<a href="#id1"><span class="problematic" id="id2">**</span></a>np.float32)
-:return: Coefficients for the operator-splitting Fourier method of simulation</p>
+<dd><p>Used in the operator-splitting Fourier method for simulation. Details provided in Supplementary Modeling Appendix IV</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>D</strong> – Diffusion coefficient (<a href="#id1"><span class="problematic" id="id2">**</span></a>np.float32)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Coefficients for the operator-splitting Fourier method of simulation</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -321,20 +382,44 @@ RGBA colour points. <strong>cmap</strong> can be generated using plt.cm.Reds(np.
 <dl class="method">
 <dt id="non_dimensional.simulation.react">
 <code class="descname">react</code><span class="sig-paren">(</span><em>e</em>, <em>dt</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/non_dimensional.html#simulation.react"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#non_dimensional.simulation.react" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform one iteration of the reaction operation.
-:param e: 1D <strong>np.ndarray</strong> of dtype <strong>np.float32</strong> and size (<strong>self.num_x</strong> x 1) describing the spatially discretized distribution of <strong>e</strong>
-:param dt: Temporal discretization (Strictly “ds” in the Supplementary Modeling)
-:return: Spatial distribution of the function after integration by 1 time-step (by amount dt)</p>
+<dd><p>Perform one iteration of the reaction operation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>e</strong> – 1D <strong>np.ndarray</strong> of dtype <strong>np.float32</strong> and size (<strong>self.num_x</strong> x 1) describing the spatially discretized distribution of <strong>e</strong></li>
+<li><strong>dt</strong> – Temporal discretization (Strictly “ds” in the Supplementary Modeling)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Spatial distribution of the function after integration by 1 time-step (by amount dt)</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="non_dimensional.simulation.react_and_diffuse">
 <code class="descname">react_and_diffuse</code><span class="sig-paren">(</span><em>e</em>, <em>dt</em>, <em>coeffs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/non_dimensional.html#simulation.react_and_diffuse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#non_dimensional.simulation.react_and_diffuse" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform one complete iteration of the integration, both reacting and diffusing (see Supplementary Modeling Appendix IV)
-:param e: 1D <strong>np.ndarray</strong> of dtype <strong>np.float32</strong> and size (<strong>self.num_x</strong> x 1) describing the spatially discretized distribution of <strong>e</strong>
-:param dt: Temporal discretization (Strictly “ds” in the Supplementary Modeling)
-:param coeffs: Coefficients for the Fourier transform, as supplied by the <strong>self.make_coeffs</strong> function
-:return: Spatial distribution of the function after integration by 1 time-step (by amount dt)</p>
+<dd><p>Perform one complete iteration of the integration, both reacting and diffusing (see Supplementary Modeling Appendix IV)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>e</strong> – 1D <strong>np.ndarray</strong> of dtype <strong>np.float32</strong> and size (<strong>self.num_x</strong> x 1) describing the spatially discretized distribution of <strong>e</strong></li>
+<li><strong>dt</strong> – Temporal discretization (Strictly “ds” in the Supplementary Modeling)</li>
+<li><strong>coeffs</strong> – Coefficients for the Fourier transform, as supplied by the <strong>self.make_coeffs</strong> function</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Spatial distribution of the function after integration by 1 time-step (by amount dt)</p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -375,10 +460,22 @@ with mean <strong>mean</strong> and standard deviation <strong>SD</strong></p>
 <p>if <strong>apical_on</strong> is <strong>True</strong>, then <strong>n</strong> specifies the number of spatial blocks within the apical domain
 (of length <strong>self.l_apical</strong>), and <strong>self.num_x</strong> is computed with respect to the ratio of <strong>self.l_apical</strong> and
 <strong>self.L</strong> (the full domain length i.e. cell perimeter)</p>
-<p>if <strong>apical_on</strong> is <strong>False</strong>, then <strong>n</strong> defines <strong>self.num_x</strong>
-:param n: Number of spatial blocks (<strong>np.int32</strong>)
-:param apical_on: Specifies whether apical membrane is considered specifically or not (<strong>np.bool</strong>)
-:return:</p>
+<p>if <strong>apical_on</strong> is <strong>False</strong>, then <strong>n</strong> defines <strong>self.num_x</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>n</strong> – Number of spatial blocks (<strong>np.int32</strong>)</li>
+<li><strong>apical_on</strong> – Specifies whether apical membrane is considered specifically or not (<strong>np.bool</strong>)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
@@ -407,8 +504,15 @@ with mean <strong>mean</strong> and standard deviation <strong>SD</strong></p>
 <dl class="method">
 <dt id="non_dimensional.simulation.simulate">
 <code class="descname">simulate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/non_dimensional.html#simulation.simulate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#non_dimensional.simulation.simulate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform full simulation, given parameters, using operator-splitting Fourier method
-:return: <strong>self.y_sol</strong>, a 2D <strong>np.ndarray</strong> array (<strong>n_t</strong> x <strong>self.num_x</strong>), where <strong>n_t</strong> is the number of time-steps (as defined by <strong>self.t_span</strong>).</p>
+<dd><p>Perform full simulation, given parameters, using operator-splitting Fourier method</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><strong>self.y_sol</strong>, a 2D <strong>np.ndarray</strong> array (<strong>n_t</strong> x <strong>self.num_x</strong>), where <strong>n_t</strong> is the number of time-steps (as defined by <strong>self.t_span</strong>).</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

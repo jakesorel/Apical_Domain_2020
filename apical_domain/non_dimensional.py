@@ -45,6 +45,7 @@ class simulation:
         **self.L** (the full domain length i.e. cell perimeter)
 
         if **apical_on** is **False**, then **n** defines **self.num_x**
+
         :param n: Number of spatial blocks (**np.int32**)
         :param apical_on: Specifies whether apical membrane is considered specifically or not (**np.bool**)
         :return:
@@ -102,6 +103,7 @@ class simulation:
     def make_coeffs(self,D):
         """
         Used in the operator-splitting Fourier method for simulation. Details provided in Supplementary Modeling Appendix IV
+
         :param D: Diffusion coefficient (**np.float32)
         :return: Coefficients for the operator-splitting Fourier method of simulation
         """
@@ -112,6 +114,7 @@ class simulation:
     def diffuse(self,X, dt, coeffs):
         """
         Perform the diffusion operation, given the spatial distribution of the function being integrated **X** ("e" here)
+
         :param X: Function to be integrated (**np.ndarray** of dtype **np.float32** and size (**self.num_x** x 1)
         :param dt: Temporal discretization (Strictly "ds" in the Supplementary Modeling)
         :param coeffs: Coefficients for the Fourier transform, as supplied by the **self.make_coeffs** function
@@ -126,6 +129,7 @@ class simulation:
     def f(self,e,t):
         """
         Reaction function, describing the transport terms.
+
         :param e: 1D **np.ndarray** of dtype **np.float32** and size (**self.num_x** x 1) describing the spatially discretized distribution of **e**
         :param t: Time-point
         :return: de/dt -- 1D **np.ndarray** of dtype **np.float32** and size (**self.num_x** x 1)
@@ -136,6 +140,7 @@ class simulation:
     def react(self,e,dt):
         """
         Perform one iteration of the reaction operation.
+
         :param e: 1D **np.ndarray** of dtype **np.float32** and size (**self.num_x** x 1) describing the spatially discretized distribution of **e**
         :param dt: Temporal discretization (Strictly "ds" in the Supplementary Modeling)
         :return: Spatial distribution of the function after integration by 1 time-step (by amount dt)
@@ -145,6 +150,7 @@ class simulation:
     def react_and_diffuse(self,e, dt, coeffs):
         """
         Perform one complete iteration of the integration, both reacting and diffusing (see Supplementary Modeling Appendix IV)
+
         :param e: 1D **np.ndarray** of dtype **np.float32** and size (**self.num_x** x 1) describing the spatially discretized distribution of **e**
         :param dt: Temporal discretization (Strictly "ds" in the Supplementary Modeling)
         :param coeffs: Coefficients for the Fourier transform, as supplied by the **self.make_coeffs** function
@@ -155,6 +161,7 @@ class simulation:
     def simulate(self):
         """
         Perform full simulation, given parameters, using operator-splitting Fourier method
+
         :return: **self.y_sol**, a 2D **np.ndarray** array (**n_t** x **self.num_x**), where **n_t** is the number of time-steps (as defined by **self.t_span**).
         """
         X = np.zeros([self.t_span.size, self.y0.size])
@@ -241,6 +248,7 @@ class simulation:
     def get_rel_height(self):
         """
         Find ∆e, the difference between the maximum and minimum value of **e** at the final time-step.
+
         :return: ∆e, **self.rel_height** (a **np.float32**)
         """
         self.rel_height = self.ysol[-1].max() - self.ysol[-1].min()
@@ -257,6 +265,7 @@ class simulation:
     def get_amount(self):
         """
         Find **self.amount** = int_0^L {e} dx
+
         :return: **self.amount**
         """
         self.amount = np.sum(self.ysol[-1])*self.dx
@@ -265,6 +274,7 @@ class simulation:
     def get_polarisation_timescale(self):
         """
         Find the relative polarization time-scale, the amount of (dimensionless) time until the simulation surpasses a critical polarity threshold (defined by self.pol_thresh)
+
         :return: **self.polarisation_timescale**
         """
         relheights = self.get_rel_heights()
@@ -277,6 +287,7 @@ class simulation:
     def find_peaks(self,y):
         """
         Count the number of peaks in a solution.
+
         :param y: **1D** array of concentrations (i.e. **E** at a given time t) (**np.ndarray** of size (**self.num_x x 1**) and dtype **np.float32**)
         :return: Number of peaks (**np.int32**)
         """
@@ -321,6 +332,7 @@ class phase_space:
         """
         Phase space considers solutions when varying two parameters. So this function sets the **axis-labels** of the
         x and y axes
+
         :param xname: **Axis label** of the x-axis (**str**), e.g. r"$log_10 \lambda$"
         :param yname: **Axis label** of the x-axis (**str**), e.g. r"$1 / \epsilon$"
         """
@@ -343,6 +355,7 @@ class phase_space:
     def get_outname(self,out):
         """
         Defines the labels attributed to the various statistics that are calculated.
+
         :param out: The output matrix from the parameter sweep (e.g. **self.rel_height**)
         :return: Label (**str**) (e.g. r"$\Delta e$")
         """
@@ -357,6 +370,7 @@ class phase_space:
         """
         Perform the simulation (with repeats as defined by the **np.int** **self.rep**), and calculate the summary statistics:
         the relative height (∆e), the amount (int e dx), the polarization timescale, and the number of peaks.
+
         :param X: Two-element list or array defining the values of the parameters attributed to the x or y axis
         :return: Four-element array of the statistics, as defined by the order listed above.
         """
@@ -481,6 +495,7 @@ class phase_space:
     def overlay_peaks(self, ax):
         """
         Overlay the number of peaks. Transparent if 1 or 0 peaks, or increasingly black if multi-peak solutions are frequent.
+
         :param ax: **matplotlib** axis object
         :return: ax
         """
