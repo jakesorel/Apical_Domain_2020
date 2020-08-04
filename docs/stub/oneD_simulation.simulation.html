@@ -1,0 +1,545 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>oneD_simulation.simulation &mdash; Apical Domain 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Apical Domain
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../oneDsim_sim.html">Simulation class for regular equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../oneDsim_ps.html">Phase space class for regular equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nd_sim.html">Simulation class for dimensionless equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nd_ps.html">Phase space class for dimensionless equations</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Apical Domain</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>oneD_simulation.simulation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/stub/oneD_simulation.simulation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="oned-simulation-simulation">
+<h1>oneD_simulation.simulation<a class="headerlink" href="#oned-simulation-simulation" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="oneD_simulation.simulation">
+<em class="property">class </em><code class="descclassname">oneD_simulation.</code><code class="descname">simulation</code><a class="reference internal" href="../_modules/oneD_simulation.html#simulation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulator object for regular equations.</p>
+<p>Uses finite-difference method of solving PDE defined in Supplementary Modelling</p>
+<dl class="method">
+<dt id="oneD_simulation.simulation.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+</dd></dl>
+
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#oneD_simulation.simulation.__init__" title="oneD_simulation.simulation.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>()</td>
+<td>Initialize self.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#oneD_simulation.simulation.centre_solution" title="oneD_simulation.simulation.centre_solution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">centre_solution</span></code></a>()</td>
+<td>Given the simulation is performed on Periodic Boundary Conditions, the central location is undefined.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#oneD_simulation.simulation.del_1d" title="oneD_simulation.simulation.del_1d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">del_1d</span></code></a>(y,&nbsp;dx)</td>
+<td>Central difference discretisation of the Laplacian.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#oneD_simulation.simulation.f" title="oneD_simulation.simulation.f"><code class="xref py py-obj docutils literal notranslate"><span class="pre">f</span></code></a>(y,&nbsp;t)</td>
+<td>System of partial differential equations as defined in the Supplementary Modelling, describing the spatio-temporal evolution of <strong>E</strong>.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#oneD_simulation.simulation.f_apical_on" title="oneD_simulation.simulation.f_apical_on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">f_apical_on</span></code></a>(y,&nbsp;t)</td>
+<td>System of partial differential equations as defined in the Supplementary Modelling, describing the spatio-temporal evolution of <strong>E</strong> <strong>modelling cell-cell contacts, where E can load only on the apical membrane</strong>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#oneD_simulation.simulation.find_peaks" title="oneD_simulation.simulation.find_peaks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">find_peaks</span></code></a>(y)</td>
+<td>Count the number of peaks in a solution.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#oneD_simulation.simulation.get_amount" title="oneD_simulation.simulation.get_amount"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_amount</span></code></a>()</td>
+<td>Find <strong>self.amount</strong> = int_0^L {E} dx :return: <strong>self.amount</strong></td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#oneD_simulation.simulation.get_apical_solution" title="oneD_simulation.simulation.get_apical_solution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_apical_solution</span></code></a>()</td>
+<td>Crop the solution down to just the apical membrane (as defined by <strong>self.l_apical</strong> versus <strong>self.L</strong>).</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#oneD_simulation.simulation.get_peaks" title="oneD_simulation.simulation.get_peaks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_peaks</span></code></a>()</td>
+<td>Find the number of peaks for all time-points.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#oneD_simulation.simulation.get_rel_height" title="oneD_simulation.simulation.get_rel_height"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_rel_height</span></code></a>()</td>
+<td>Find ∆E, the difference between the maximum and minimum value of <strong>E</strong> at the final time-step.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#oneD_simulation.simulation.get_rel_heights" title="oneD_simulation.simulation.get_rel_heights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_rel_heights</span></code></a>()</td>
+<td>Find ∆E for all time-points :return: <strong>self.rel_heights (**np.ndarray</strong> of shape (<strong>n_t</strong> x 1) and dtype <strong>np.float32</strong>)</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#oneD_simulation.simulation.make_directory" title="oneD_simulation.simulation.make_directory"><code class="xref py py-obj docutils literal notranslate"><span class="pre">make_directory</span></code></a>(dir)</td>
+<td>Makes a new directory, specified by the string dir :param dir: Directory name (<strong>string</strong>)</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#oneD_simulation.simulation.norm" title="oneD_simulation.simulation.norm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">norm</span></code></a>(x)</td>
+<td>Generic function to normalize a 1D <strong>np.ndarray</strong>, calculating the normalized array <strong>y</strong> as:</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#oneD_simulation.simulation.plot_time_series" title="oneD_simulation.simulation.plot_time_series"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_time_series</span></code></a>(cmap[,&nbsp;show,&nbsp;filename,&nbsp;…])</td>
+<td>Plot time-series of the simulation, as an overlayed set of lines.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#oneD_simulation.simulation.set_initial" title="oneD_simulation.simulation.set_initial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_initial</span></code></a>([mean,&nbsp;SD,&nbsp;override,&nbsp;apical_on])</td>
+<td>Set the initial conditions of <strong>E</strong>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#oneD_simulation.simulation.set_num_x" title="oneD_simulation.simulation.set_num_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_num_x</span></code></a>(n[,&nbsp;apical_on])</td>
+<td>Sets spatial discretisation of number <strong>num_x</strong></td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#oneD_simulation.simulation.set_t_span" title="oneD_simulation.simulation.set_t_span"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_t_span</span></code></a>(dt,&nbsp;tfin)</td>
+<td>Sets temporal discretisation.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#oneD_simulation.simulation.solve" title="oneD_simulation.simulation.solve"><code class="xref py py-obj docutils literal notranslate"><span class="pre">solve</span></code></a>([apical_on])</td>
+<td>Perform the simulation.</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="oneD_simulation.simulation.centre_solution">
+<code class="descname">centre_solution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.centre_solution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.centre_solution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given the simulation is performed on Periodic Boundary Conditions, the central location is undefined. For clarity,
+this function centres the solution such that the maximal <strong>E</strong> at the final time-step lies at <strong>self.num_x/2</strong>.</p>
+<p>Over-writes <strong>self.y_sol</strong> and also saves in <strong>self.ysolshift</strong> as a copy.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oneD_simulation.simulation.del_1d">
+<code class="descname">del_1d</code><span class="sig-paren">(</span><em>y</em>, <em>dx</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.del_1d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.del_1d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Central difference discretisation of the Laplacian.
+:param y: Spatially discretised 1D function (i.e. a <strong>np.ndarray</strong> of dtype <strong>np.float32</strong>) on which the function is applied
+:param dx: Spatial discretisation lengthscale (<strong>np.float32</strong>)
+:return: Spatially discretised Laplacian of y</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oneD_simulation.simulation.f">
+<code class="descname">f</code><span class="sig-paren">(</span><em>y</em>, <em>t</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.f"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.f" title="Permalink to this definition">¶</a></dt>
+<dd><p>System of partial differential equations as defined in the Supplementary Modelling, describing the spatio-temporal
+evolution of <strong>E</strong>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>y</strong> – Spatially discretised 1D function of <strong>E</strong> (i.e. a <strong>np.ndarray</strong> of dtype <strong>np.float32</strong>) of length <strong>self.num_x</strong></li>
+<li><strong>t</strong> – Time-point at which to evaluate (<strong>np.float32</strong>)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Time differential of <strong>E</strong> at each spatial block (<strong>np.ndarray</strong> of dtype <strong>np.float32</strong> and length <strong>self.num_x</strong>)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="oneD_simulation.simulation.f_apical_on">
+<code class="descname">f_apical_on</code><span class="sig-paren">(</span><em>y</em>, <em>t</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.f_apical_on"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.f_apical_on" title="Permalink to this definition">¶</a></dt>
+<dd><p>System of partial differential equations as defined in the Supplementary Modelling, describing the spatio-temporal
+evolution of <strong>E</strong> <strong>modelling cell-cell contacts, where E can load only on the apical membrane</strong>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>y</strong> – Spatially discretised 1D function of <strong>E</strong> (i.e. a <strong>np.ndarray</strong> of dtype <strong>np.float32</strong>) of length <strong>self.num_x</strong></li>
+<li><strong>t</strong> – Time-point at which to evaluate (<strong>np.float32</strong>)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">Time differential of <strong>E</strong> at each spatial block (<strong>np.ndarray</strong> of dtype <strong>np.float32</strong> and length <strong>self.num_x</strong>)</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="oneD_simulation.simulation.find_peaks">
+<code class="descname">find_peaks</code><span class="sig-paren">(</span><em>y</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.find_peaks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.find_peaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Count the number of peaks in a solution.
+:param y: <strong>1D</strong> array of concentrations (i.e. <strong>E</strong> at a given time t) (<strong>np.ndarray</strong> of size (<strong>self.num_x x 1</strong>) and dtype <strong>np.float32</strong>)
+:return: Number of peaks (<strong>np.int32</strong>)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oneD_simulation.simulation.get_amount">
+<code class="descname">get_amount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.get_amount"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.get_amount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find <strong>self.amount</strong> = int_0^L {E} dx
+:return: <strong>self.amount</strong></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oneD_simulation.simulation.get_apical_solution">
+<code class="descname">get_apical_solution</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.get_apical_solution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.get_apical_solution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Crop the solution down to just the apical membrane (as defined by <strong>self.l_apical</strong> versus <strong>self.L</strong>).</p>
+<p>The solution is first centred before cropping.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oneD_simulation.simulation.get_peaks">
+<code class="descname">get_peaks</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.get_peaks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.get_peaks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find the number of peaks for all time-points.</p>
+<p>Number of peaks = 0 when the relative height is too low (i.e. discounting spurious multi-peak solutions, where variations are miniscule).
+The threshold is set by <strong>self.pol_thresh</strong>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Number of peaks <strong>self.peaks</strong> a <strong>np.ndarray</strong> of size (<strong>n_t</strong> x 1) and dtype <strong>np.int32</strong></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="oneD_simulation.simulation.get_rel_height">
+<code class="descname">get_rel_height</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.get_rel_height"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.get_rel_height" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find ∆E, the difference between the maximum and minimum value of <strong>E</strong> at the final time-step.
+:return: ∆E, <strong>self.rel_height</strong> (a <strong>np.float32</strong>)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oneD_simulation.simulation.get_rel_heights">
+<code class="descname">get_rel_heights</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.get_rel_heights"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.get_rel_heights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find ∆E for all time-points
+:return: <strong>self.rel_heights (**np.ndarray</strong> of shape (<strong>n_t</strong> x 1) and dtype <strong>np.float32</strong>)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oneD_simulation.simulation.make_directory">
+<code class="descname">make_directory</code><span class="sig-paren">(</span><em>dir</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.make_directory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.make_directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Makes a new directory, specified by the string dir
+:param dir: Directory name (<strong>string</strong>)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oneD_simulation.simulation.norm">
+<code class="descname">norm</code><span class="sig-paren">(</span><em>x</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.norm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.norm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generic function to normalize a 1D <strong>np.ndarray</strong>, calculating the normalized array <strong>y</strong> as:</p>
+<p>y = (x-min(x))/(max(x) - min(x))</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>x</strong> – A 1D <strong>np.ndarray</strong> to be normalized.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Normalized <strong>np.ndarray</strong>, <strong>y</strong>.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="oneD_simulation.simulation.plot_time_series">
+<code class="descname">plot_time_series</code><span class="sig-paren">(</span><em>cmap</em>, <em>show=True</em>, <em>filename=False</em>, <em>apical=False</em>, <em>ylim=(0</em>, <em>150)</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.plot_time_series"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.plot_time_series" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot time-series of the simulation, as an overlayed set of lines.</p>
+<p>The number of time-points that are sampled is set by the parameter <strong>cmap</strong>, a (n_sample x 4) <strong>np.ndarray</strong> of
+RGBA colour points. <strong>cmap</strong> can be generated using plt.cm.Reds(np.linspace(0,1,n_sample)) for example.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>cmap</strong> – The colormap used to plot the solution (a <strong>np.ndarray</strong>)</li>
+<li><strong>show</strong> – If <strong>True</strong>, then show the plot.</li>
+<li><strong>filename</strong> – <strong>str</strong> defining the file-name of the plot if is being saved. If <strong>False</strong> then the plot is not saved.</li>
+<li><strong>apical</strong> – Determines whether to plot the whole membrane (<strong>False</strong>) or just the apical membrane (<strong>True</strong>) (<strong>np.bool</strong>)</li>
+<li><strong>ylim</strong> – Axis limits on the y-axis (i.e. the concentration of <strong>E</strong>) (<strong>tuple</strong>)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="oneD_simulation.simulation.set_initial">
+<code class="descname">set_initial</code><span class="sig-paren">(</span><em>mean=False</em>, <em>SD=False</em>, <em>override=False</em>, <em>apical_on=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.set_initial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.set_initial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the initial conditions of <strong>E</strong>.</p>
+<p>If <strong>override</strong> is <strong>False</strong>, then the initial condition of <strong>E</strong>, <strong>self.y0</strong>, is given by a normal distribution,
+with mean <strong>mean</strong> and standard deviation <strong>SD</strong></p>
+<p>If <strong>overide</strong> is not <strong>False</strong> but instead a 1D array of length (<strong>self.num_x</strong>), then <strong>self.y0</strong> is defined as
+<strong>override</strong></p>
+<p>If <strong>apical_on</strong> is <strong>True</strong>, then outside the apical membrane, <strong>self.y0</strong> is set to 1e-17 (&lt;&lt;1)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>mean</strong> – Mean value used in normal distribution (<strong>np.float32</strong>)</li>
+<li><strong>SD</strong> – Standard deviation used in normal distribution (<strong>np.float32</strong>)</li>
+<li><strong>override</strong> – Override 1D array if provided (<strong>np.ndarray</strong> of dtype <strong>np.float32</strong>), else <strong>False</strong></li>
+<li><strong>apical_on</strong> – Sets <strong>self.y0</strong> to (approx.) 0 outside the apical membrane.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="oneD_simulation.simulation.set_num_x">
+<code class="descname">set_num_x</code><span class="sig-paren">(</span><em>n</em>, <em>apical_on=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.set_num_x"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.set_num_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets spatial discretisation of number <strong>num_x</strong></p>
+<p>if <strong>apical_on</strong> is <strong>True</strong>, then <strong>n</strong> specifies the number of spatial blocks within the apical domain
+(of length <strong>self.l_apical</strong>), and <strong>self.num_x</strong> is computed with respect to the ratio of <strong>self.l_apical</strong> and
+<strong>self.L</strong> (the full domain length i.e. cell perimeter)</p>
+<p>if <strong>apical_on</strong> is <strong>False</strong>, then <strong>n</strong> defines <strong>self.num_x</strong>
+:param n: Number of spatial blocks (<strong>np.int32</strong>)
+:param apical_on: Specifies whether apical membrane is considered specifically or not (<strong>np.bool</strong>)
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oneD_simulation.simulation.set_t_span">
+<code class="descname">set_t_span</code><span class="sig-paren">(</span><em>dt</em>, <em>tfin</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.set_t_span"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.set_t_span" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets temporal discretisation. Saves a 1D array of time-points to <strong>self.t_span</strong></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>dt</strong> – Time-step (<strong>np.float32</strong>)</li>
+<li><strong>tfin</strong> – Final time-step (<strong>np.float32</strong>)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="oneD_simulation.simulation.solve">
+<code class="descname">solve</code><span class="sig-paren">(</span><em>apical_on=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/oneD_simulation.html#simulation.solve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oneD_simulation.simulation.solve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform the simulation. Uses the <strong>scipy.integrate.odeint</strong> package to integrate the defined system of PDEs.</p>
+<p>If <strong>apical_on</strong> is <strong>True</strong>, then simulate with cell-cell contacts (where loading is restricted to the apical membrane)</p>
+<p>If <strong>apical_on</strong> is <strong>False</strong>, then simulate without cell-cell contacts.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>apical_on</strong> – Specifies whether to simulate with or without cell-cell contacts (<strong>np.bool</strong>)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><strong>self.y_sol</strong>, a 2D <strong>np.ndarray</strong> array (<strong>n_t</strong> x <strong>self.num_x</strong>), where <strong>n_t</strong> is the number of time-steps (as defined by <strong>self.t_span</strong>).</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Jake Cornwall-Scoones
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
