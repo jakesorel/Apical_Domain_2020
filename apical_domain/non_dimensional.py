@@ -10,6 +10,11 @@ import time
 
 
 class simulation:
+    """
+    Simulator object for dimensionless form of equations. 
+    
+    Uses operator-splitting Fourier transform method of solving PDE defined in Supplementary Modelling
+    """
     def __init__(self):
         self.num_x = []
         self.L = 1
@@ -298,6 +303,9 @@ class simulation:
         return self.peaks
 
 class phase_space:
+    """
+    Phase space object performing a parameter span for a (custom) pair of parameters using dimensionless form of equations
+    """
     def __init__(self):
         self.sim = simulation()
         self.sim.set_num_x(100, apical_on=False)

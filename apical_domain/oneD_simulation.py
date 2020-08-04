@@ -11,6 +11,11 @@ plt.rcParams.update({'pdf.fonttype': 42})
 
 
 class simulation:
+    """
+    Simulator object for regular equations.
+
+    Uses finite-difference method of solving PDE defined in Supplementary Modelling
+    """
     def __init__(self):
         self.D_E = 0.100673828125
         self.k_off = 0.01755789881449827
@@ -297,6 +302,9 @@ class simulation:
 
 
 class phase_space:
+    """
+    Phase space object performing a parameter span for a (custom) pair of parameters using regular equations
+    """
     def __init__(self):
         self.sim = simulation()
         self.sim.set_num_x(30, apical_on=False)
